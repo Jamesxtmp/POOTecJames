@@ -58,5 +58,4 @@ public class Sueldo {
         System.out.println( empleado2.nombre +  " tu sueldo es de: " + empleado2.sueldoAPagar);
         
     }
-
 }
