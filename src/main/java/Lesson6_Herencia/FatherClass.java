@@ -1,9 +1,18 @@
 package Lesson6_Herencia;
 
+import javax.swing.JOptionPane;
+
 public class FatherClass {
     String oficio;
+
+    public FatherClass(String oficio) {
+        this.oficio = oficio;
+    }
     
     public void cookieMake(){
-        System.out.println("Hago galletas (Escrito en FatherClass)");
+        JOptionPane.showMessageDialog( 
+                null, 
+                ("Hago Galletas (" + this.oficio + ")")
+        );
     }
 }
