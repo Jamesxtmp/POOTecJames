@@ -9,12 +9,10 @@ public class TryCatchArray {
             System.out.println(numbers[1]);
             System.out.println(numbers[2]);
             System.out.println(numbers[3]);
-        } catch (Exception e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }finally{
             System.out.println(":)");
         }
-
     }
-
 }
