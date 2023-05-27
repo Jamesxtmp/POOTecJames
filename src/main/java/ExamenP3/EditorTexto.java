@@ -37,18 +37,9 @@ public class EditorTexto {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
                 String line;
-                //agrego nuevas variables String para almacenar mis cadenas invertidas
-                String lineInvertida;
-                String textoInvertido = "";
                 while ((line = bufferedReader.readLine()) != null) {
                     textArea.append(line + "\n");
-                    
-                    //Hago uso de mi funcion Invertidora por cada linea del texto
-                    lineInvertida = invertirCadena(line);
-                    //Almaceno todas las lineas invertidas
-                    textoInvertido += (lineInvertida + "\n");
                 }
-
                 bufferedReader.close();
 
                 JScrollPane scrollPane = new JScrollPane(textArea);
@@ -58,9 +49,24 @@ public class EditorTexto {
                     FileWriter fileWriter = new FileWriter(filePath);
                     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                     bufferedWriter.write(textArea.getText());
-                   
+
                     bufferedWriter.close();
                     
+                    String lineInvertida;
+                    String textoInvertido = "";
+                    
+                    
+                    bufferedReader = new BufferedReader(new FileReader(filePath));
+                    //agrego nuevas variables String para almacenar mis cadenas invertidas
+                    
+                    while ((line = bufferedReader.readLine()) != null) {
+                        //Hago uso de mi funcion Invertidora por cada linea del texto
+                        lineInvertida = invertirCadena(line);
+                        //Almaceno todas las lineas invertidas
+                        textoInvertido += (lineInvertida + "\n");
+                    }
+                    bufferedReader.close();
+
                     //Modifique el Mensaje de Guardado para que muestre el Texto Invertido
                     JOptionPane.showMessageDialog(null, "Archivo guardado exitosamente.\nTexto Invertido: \n" + textoInvertido);
                 }

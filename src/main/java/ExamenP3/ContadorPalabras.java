@@ -34,13 +34,9 @@ public class ContadorPalabras {
                 FileReader fileReader = new FileReader(filePath);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-                String line;
-                int palabrasTotal = 0;
-                
+                String line;  
                 while ((line = bufferedReader.readLine()) != null) {
                     textArea.append(line + "\n");
-                    //
-                    palabrasTotal += contarPalabras(line);
                 }
                 bufferedReader.close();
 
@@ -52,8 +48,18 @@ public class ContadorPalabras {
                     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                     bufferedWriter.write(textArea.getText());
                     bufferedWriter.close();
+                    
+                    
+                    int palabrasTotal = 0;
+                    
+                    bufferedReader = new BufferedReader(new FileReader(filePath));
+                    //agrego nuevas variables String para almacenar mis cadenas invertidas
+                    
+                    while ((line = bufferedReader.readLine()) != null) {
+                        palabrasTotal += contarPalabras(line);
+                    }
+                    bufferedReader.close();
 
-                    //
                     JOptionPane.showMessageDialog(null, "Archivo guardado exitosamente.\nPalabras: " + palabrasTotal);
                 }
             } catch (IOException e) {

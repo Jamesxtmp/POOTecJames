@@ -1,1 +1,1 @@
-
+Contador de palabras, estas deben ser 7 
