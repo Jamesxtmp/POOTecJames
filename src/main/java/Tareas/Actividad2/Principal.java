@@ -31,8 +31,6 @@ public class Principal {
                     "\nSalario: " + empleado1.getSalario() +
                     "\nPuesto: " + empleado1.getPuesto()
             );
-        }
-        
-        
+        } 
     }
 }
